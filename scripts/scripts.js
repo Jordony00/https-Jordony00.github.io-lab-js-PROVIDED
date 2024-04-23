@@ -10,10 +10,39 @@ You are encouraged to use the provided naming convention for ease of review.
 /* create variables to hold the values for modelName and duration */
 
 // INSERT YOUR CODE HERE
-var modelName = "scripts.js";
 
-var duration = 10;
+let modelName = "scripts.js"; 
+let duration = 0; 
 
+
+function updateModelText() {
+    document.getElementById("model-text").textContent = modelName;
+}
+
+
+function updateDurationText() {
+    document.getElementById("duration-text").textContent = duration;
+}
+
+
+updateModelText();
+updateDurationText();
+
+
+document.getElementById("model-button").addEventListener("click", function() {
+    
+    modelName = modelName === "Model XYZ" ? "Model CPRG" : "Model XYZ";
+    
+    updateModelText();
+});
+
+
+document.getElementById("duration-button").addEventListener("click", function() {
+    
+    duration++;
+   
+    updateDurationText();
+});
 
 
 
