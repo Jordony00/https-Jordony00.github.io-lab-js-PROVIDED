@@ -10,6 +10,9 @@ You are encouraged to use the provided naming convention for ease of review.
 /* create variables to hold the values for modelName and duration */
 
 // INSERT YOUR CODE HERE
+var modelName = "scripts.js";
+
+var duration = 10;
 
 
 
@@ -26,6 +29,33 @@ You are encouraged to use the provided naming convention for ease of review.
 */
 
 // INSERT YOUR CODE HERE
+function recalculate() {
+    
+    let costLabel = document.getElementById("calculated-cost");
+    
+   
+    let modelName = "scripts.js"; 
+
+    
+    let duration = 5; 
+
+ 
+    let totalCost;
+
+    if (modelName === "scripts.js") {
+        totalCost = duration * 100;
+    } else if (modelName === "CPRG") {
+        totalCost = duration * 213;
+    } else {
+        totalCost = 0; 
+    }
+
+
+    costLabel.innerHTML = totalCost;
+}
+
+
+
 
 
 
@@ -47,6 +77,34 @@ You are encouraged to use the provided naming convention for ease of review.
 // INSERT YOUR CODE HERE
 
 
+let modelButton = document.getElementById("model-button");
+
+
+function changeModel() {
+    
+    let modelText = document.getElementById("model-text");
+
+    
+    if (modelName === "scripts.js") {
+      
+        modelName = "CPRG";
+        
+        modelText.innerHTML = "Model CPRG";
+    } else if (modelName === "CPRG") {
+       
+        modelName = "scripts.js";
+      
+        modelText.innerHTML = "Model XYZ";
+    }
+
+    recalculate();
+}
+
+
+modelButton.addEventListener("click", changeModel);
+
+
+
 
 
 
@@ -64,6 +122,38 @@ You are encouraged to use the provided naming convention for ease of review.
 */
 
 // INSERT YOUR CODE HERE
+
+
+let durationButton = document.getElementById("duration-button");
+
+
+function changeDuration() {
+   
+    let durationText = document.getElementById("duration-text");
+
+    
+    let newDuration = prompt("Enter the new duration:");
+
+    
+    if (newDuration !== null && !isNaN(newDuration)) {
+      
+        newDuration = parseInt(newDuration);
+        
+      
+        duration = newDuration;
+
+       
+        durationText.innerHTML = newDuration;
+
+        
+        recalculate();
+    } else {
+        alert("Please enter a valid number for the duration.");
+    }
+}
+
+
+durationButton.addEventListener("click", changeDuration);
 
 
 
